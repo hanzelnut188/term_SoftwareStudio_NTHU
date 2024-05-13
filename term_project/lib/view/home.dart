@@ -7,19 +7,20 @@ import 'package:term_project/widgets/recent_photo.dart';
 class Home extends StatelessWidget {
   const Home({super.key});
 
-  @override
+   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Home'),
       ),
-      drawer:  const MyDrawer(),
+      drawer: const MyDrawer(),
       bottomNavigationBar: const MyAppBar(),
-      body: Column(
+      body: SingleChildScrollView(
+        child: Column(
           children: <Widget>[
             // User Greeting
-            const Padding(
-              padding: EdgeInsets.all(16.0),
+            Padding(
+              padding: const EdgeInsets.all(16.0),
               child: Align(
                 alignment: Alignment.centerLeft,
                 child: Text(
@@ -40,8 +41,8 @@ class Home extends StatelessWidget {
                 ],
               ),
             ),
-            const Padding(
-              padding: EdgeInsets.all(16.0),
+            Padding(
+              padding: const EdgeInsets.all(16.0),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: <Widget>[
@@ -49,7 +50,7 @@ class Home extends StatelessWidget {
                     'Your recent food data',
                     style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
                   ),
-                  SizedBox(height: 10),
+                  const SizedBox(height: 10),
                   SizedBox(
                     height: 200, // Fixed height for the scrolling area
                     child: RecentPhoto(),
@@ -59,8 +60,8 @@ class Home extends StatelessWidget {
             ),
           ],
         ),
-    );
-  }
+      ),
+    );  }
 
   Widget _buildCircularProgressIndicator(double percentage, String label) {
     return Column(
